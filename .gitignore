@@ -212,5 +212,5 @@ artifacts/*
 
 # Ignore large model and data files
 artifacts/data_ingestion/data.zip
-model/model.h5
+
 mlruns/
