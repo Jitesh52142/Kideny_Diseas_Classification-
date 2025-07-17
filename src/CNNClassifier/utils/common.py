@@ -9,6 +9,8 @@ from box import ConfigBox
 from pathlib import Path
 from typing import Any
 import base64
+import shutil
+
 
 
 
@@ -136,3 +138,22 @@ def encodeImageIntoBase64(croppedImagePath):
     with open(croppedImagePath, "rb") as f:
         return base64.b64encode(f.read())
 
+
+
+def backup_model_from_artifacts(source_path: Path, destination_path: Path):
+    """
+    Checks if the model exists in artifacts, and if so,
+    copies it to the model folder.
+    """
+    try:
+        if source_path.exists():
+            # Create the destination folder if it doesn't exist
+            os.makedirs(destination_path.parent, exist_ok=True)
+
+            # Copy the model file
+            shutil.copyfile(source_path, destination_path)
+            print(f"[INFO] Model copied from {source_path} to {destination_path}")
+        else:
+            print(f"[WARNING] Source model not found at: {source_path}")
+    except Exception as e:
+        print(f"[ERROR] Failed to copy model: {e}")
