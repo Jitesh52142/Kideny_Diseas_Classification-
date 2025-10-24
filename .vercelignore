@@ -1,0 +1,46 @@
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+env/
+venv/
+.venv/
+pip-log.txt
+pip-delete-this-directory.txt
+.tox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
+*.log
+.git
+.mypy_cache
+.pytest_cache
+.hypothesis
+
+# MLflow
+mlruns/
+mlartifacts/
+
+# DVC
+.dvc/
+dvc.lock
+dvc.yaml
+
+# Research notebooks
+research/
+
+# Logs
+logs/
+*.log
+
+# Large model files (keep only the essential one)
+artifacts/data_ingestion/
+artifacts/prepare_base_model/
+artifacts/training/
+
+# Keep only the model in model/ directory
+!model/model.h5
